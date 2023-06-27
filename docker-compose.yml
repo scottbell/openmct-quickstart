@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  apache:
+    build: apache
+    ports:
+      - '8000:80'
+  openmct:
+    build: openmct
+  couchdb:
+    build: couchdb
+    ports:
+      - '5984:5984'
+    volumes:
+      - couchdb-data:/opt/couchdb/data
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: password
+  yamcs:
+    image: yamcs/example-simulation
+    ports:
+      - '8090:8090'
+volumes:
+  couchdb-data:
