@@ -4,20 +4,22 @@ services:
     build: apache
     ports:
       - '8000:80'
+    volumes:
+      - openmct-dist:/var/www/html
   openmct:
     build: openmct
+    volumes:
+      - openmct-dist:/openmct/openmct-yamcs
   couchdb:
     build: couchdb
-    ports:
+    expose:
       - '5984:5984'
     volumes:
       - couchdb-data:/opt/couchdb/data
-    environment:
-      COUCHDB_USER: admin
-      COUCHDB_PASSWORD: password
   yamcs:
     image: yamcs/example-simulation
-    ports:
+    expose:
       - '8090:8090'
 volumes:
   couchdb-data:
+  openmct-dist:
