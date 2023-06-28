@@ -1,15 +1,15 @@
-version: '3.1'
+version: '3.5'
 services:
   apache:
     build: apache
     ports:
-      - '8000:80'
+      - '8040:80'
     volumes:
-      - openmct-dist:/var/www/html
+      - openmct-dist:/usr/local/apache2/htdocs/openmct
   openmct:
     build: openmct
     volumes:
-      - openmct-dist:/openmct/openmct-yamcs
+      - openmct-dist:/openmct/site
   couchdb:
     build: couchdb
     expose:
