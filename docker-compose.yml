@@ -17,9 +17,10 @@ services:
     volumes:
       - couchdb-data:/opt/couchdb/data
   yamcs:
-    image: yamcs/example-simulation
-    expose:
+    build: yamcs
+    ports:
       - '8090:8090'
+      - '10015:10015/udp'
 volumes:
   couchdb-data:
   openmct-dist:
