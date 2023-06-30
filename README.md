@@ -21,13 +21,14 @@ This repository contains a quick way to get started with Open MCT, integrated wi
 ## Nuts and Bolts
 
 The `docker-compose.yml` file in this repository defines a set of containers that work together to provide a complete Open MCT environment. The containers are:
-* openmct - Builds the Open MCT web application into a shared volume (and quits)
-* couchdb - The CouchDB database used by Open MCT to persist objects created by the operator.
-* yamcs - The YAMCS telemetry & commanding server used by Open MCT to retrieve telemetry data.
-* simulator - A simple python simulator that generates telemetry data for YAMCS to serve.
-* apache - The Apache HTTP server used to serve the Open MCT web application, and to proxy requests to YAMCS and CouchDB.
+* `openmct` - Builds the Open MCT web application into a shared volume (and quits)
+* `couchdb` - The CouchDB database used by Open MCT to persist objects created by the operator.
+* `yamcs` - The YAMCS telemetry & commanding server used by Open MCT to retrieve telemetry data.
+* `simulator` - A simple python simulator that generates telemetry data for YAMCS to serve.
+* `apache` - The Apache HTTP server used to serve the Open MCT web application, and to proxy requests to YAMCS and CouchDB.
 
 Hosted websites are available at the following URLs:
 * The OpenMCT web application is served from http://localhost:8040
 * The YAMCS web application is served from http://localhost:8040/yamcs
+* The Apache server status is served from http://localhost:8040/server-status
 * The CouchDB web application is served from http://localhost:8040/couchdb/_utils (with username `admin` and password `password`)
