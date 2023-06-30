@@ -26,3 +26,8 @@ The `docker-compose.yml` file in this repository defines a set of containers tha
 * yamcs - The YAMCS telemetry & commanding server used by Open MCT to retrieve telemetry data.
 * simulator - A simple python simulator that generates telemetry data for YAMCS to serve.
 * apache - The Apache HTTP server used to serve the Open MCT web application, and to proxy requests to YAMCS and CouchDB.
+
+Hosted websites are available at the following URLs:
+* The OpenMCT web application is served from http://localhost:8040
+* The YAMCS web application is served from http://localhost:8040/yamcs
+* The CouchDB web application is served from http://localhost:8040/couchdb/_utils (with username `admin` and password `password`)
