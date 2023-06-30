@@ -1,10 +1,10 @@
 const installYamcsPlugin = window.openmctYamcs.default;
 
 const config = {
-    "yamcsDictionaryEndpoint": "http://localhost:8040/yamcs-proxy/",
-    "yamcsHistoricalEndpoint": "http://localhost:8040/yamcs-proxy/",
-    "yamcsWebsocketEndpoint": "ws://localhost:8040/yamcs-proxy/api/websocket",
-    "yamcsUserEndpoint": "http://localhost:8040/yamcs-proxy/api/user/",
+    "yamcsDictionaryEndpoint": "http://localhost:8040/yamcs/",
+    "yamcsHistoricalEndpoint": "http://localhost:8040/yamcs/",
+    "yamcsWebsocketEndpoint": "ws://localhost:8040/yamcs/api/websocket",
+    "yamcsUserEndpoint": "http://localhost:8040/yamcs/api/user/",
     "yamcsInstance": "myproject",
     "yamcsFolder": "myproject"
 };
