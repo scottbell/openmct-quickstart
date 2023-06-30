@@ -8,3 +8,4 @@ COPY openmct-quickstart.js site/openmct-quickstart.js
 RUN mkdir -p site/node_modules/openmct/dist
 RUN cp -r openmct-yamcs/node_modules/openmct/dist/* site/node_modules/openmct/dist/
 RUN cp -r openmct-yamcs/dist/openmct-yamcs.js site/
+RUN cp -r openmct-yamcs/dist/openmct-yamcs.js.map site/
