@@ -1,0 +1,22 @@
+{
+  "name": "openmct-quickstart-tests",
+  "version": "1.0.0",
+  "description": "Tests for the openmct-quickstart repo",
+  "scripts": {
+    "test:getopensource": "sh ./tests/git-opensource-tests.sh",
+    "test": "npx playwright test --config=./tests/e2e/playwright-quickstart.config.js --project=chromium quickstartSmoke"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottbell/openmct-quickstart.git"
+  },
+  "keywords": [
+    "openmct",
+    "yamcs",
+    "couchdb",
+    "httpd",
+    "nasa"
+  ],
+  "author": "National Aeronautics and Space Administration",
+  "license": "Apache-2.0"
+}
