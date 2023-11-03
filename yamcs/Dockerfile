@@ -1,6 +1,24 @@
 FROM maven:3.6-openjdk-11
-WORkDIR /yamcs
+
+WORKDIR /yamcs
+
+# Clone the quickstart repository
 RUN git clone https://github.com/yamcs/quickstart.git
+
+# Update the pom.xml file to include the Yamcs Prometheus plugin
+RUN sed -i '/<\/dependencies>/i \
+    <!-- Yamcs Prometheus plugin -->\
+    <dependency>\
+      <groupId>org.yamcs</groupId>\
+      <artifactId>yamcs-prometheus</artifactId>\
+      <version>1.2.0</version>\
+    </dependency>' /yamcs/quickstart/pom.xml
+
+# Compile the project
 RUN cd quickstart && mvn compile
-RUN cd quickstart/src/main/yamcs/etc/ && sed -i '/args:/a \      contextPath: "/yamcs"' yamcs.yaml 
-CMD cd quickstart && mvn yamcs:run
+
+# Update the yamcs.yaml configuration
+RUN sed -i '/args:/a \      contextPath: "/yamcs"' /yamcs/quickstart/src/main/yamcs/etc/yamcs.yaml 
+
+# Command to run Yamcs
+CMD ["sh", "-c", "cd /yamcs/quickstart && mvn yamcs:run"]
