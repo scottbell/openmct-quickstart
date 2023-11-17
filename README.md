@@ -14,9 +14,10 @@ This repository contains a quick way to get started with Open MCT, integrated wi
 
 1. Clone this repository
 2. cd to the repository directory (usually `openmct-quickstart`)
-3. Run `docker-compose up`
+3. Run `docker compose up`
 4. Wait a bit for the containers to start ⏱️
 5. Open a browser to http://localhost:8040
+6. Enter the username/password `testuser`/`NasaIsCool!`
 
 ## Nuts and Bolts
 
