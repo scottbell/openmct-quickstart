@@ -1,10 +1,10 @@
 const installYamcsPlugin = window.openmctYamcs.default;
 
 const config = {
-    "yamcsDictionaryEndpoint": "http://localhost:8040/yamcs/",
-    "yamcsHistoricalEndpoint": "http://localhost:8040/yamcs/",
-    "yamcsWebsocketEndpoint": "ws://localhost:8040/yamcs/api/websocket",
-    "yamcsUserEndpoint": "http://localhost:8040/yamcs/api/user/",
+    "yamcsDictionaryEndpoint": "http://192.168.22.3:8040/yamcs/",
+    "yamcsHistoricalEndpoint": "http://192.168.22.3:8040/yamcs/",
+    "yamcsWebsocketEndpoint": "ws://192.168.22.3:8040/yamcs/api/websocket",
+    "yamcsUserEndpoint": "http://192.168.22.3:8040/yamcs/api/user/",
     "yamcsInstance": "myproject",
     "yamcsFolder": "myproject"
 };
@@ -51,7 +51,7 @@ const openmct = window.openmct;
     });
 
     function installDefaultPlugins() {
-        openmct.install(openmct.plugins.CouchDB("http://localhost:8040/couchdb/openmct"));
+        openmct.install(openmct.plugins.CouchDB("http://192.168.22.3:8040/couchdb/openmct"));
         openmct.install(openmct.plugins.Espresso());
         openmct.install(openmct.plugins.MyItems());
         openmct.install(openmct.plugins.Filters(['telemetry.plot.overlay', 'table']));
