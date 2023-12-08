@@ -43,6 +43,8 @@ services:
       - docker_openmct_link
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    depends_on:
+    - yamcs
 volumes:
   couchdb-data:
   openmct-dist:

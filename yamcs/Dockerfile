@@ -18,7 +18,11 @@ RUN sed -i '/<\/dependencies>/i \
 RUN cd quickstart && mvn compile
 
 # Update the yamcs.yaml configuration
-RUN sed -i '/args:/a \      contextPath: "/yamcs"' /yamcs/quickstart/src/main/yamcs/etc/yamcs.yaml 
+RUN sed -i '/args:/a \      contextPath: "/yamcs"' /yamcs/quickstart/src/main/yamcs/etc/yamcs.yaml
+
+# Update the yamcs.yaml configuration to include additional parameters for the HttpServer service
+# Update the yamcs.yaml configuration file
+RUN sed -i '/allowCredentials: false/a \ \ \ \ \ \ maxContentLength: 20000000\n\ \ \ \ \ \ webSocket:\n\ \ \ \ \ \ \ \ writeBufferWaterMark: { low: 32768, high: 160000000 }' /yamcs/quickstart/src/main/yamcs/etc/yamcs.yaml
 
 # Command to run Yamcs
 CMD ["sh", "-c", "cd /yamcs/quickstart && mvn yamcs:run"]
