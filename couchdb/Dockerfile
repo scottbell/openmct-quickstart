@@ -1,4 +1,4 @@
-FROM couchdb:latest
+FROM couchdb:3.3.2
 EXPOSE 5984
 WORkDIR /couchdb_setup
 COPY ./initialize-couchdb.sh /couchdb_setup/initialize-couchdb.sh
