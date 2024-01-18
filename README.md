@@ -33,3 +33,25 @@ Hosted websites are available at the following URLs:
 * The YAMCS web application is served from http://localhost:8040/yamcs
 * The Apache server status is served from http://localhost:8040/server-status
 * The CouchDB web application is served from http://localhost:8040/couchdb/_utils (with username `admin` and password `password`)
+
+## Diagram
+
+```mermaid
+graph TD
+    A[Apache HTTP Server] -- serves --> B[Open MCT Web Application]
+    A -- proxies --> C[CouchDB Database]
+    A -- proxies --> D[YAMCS Telemetry & Commanding Server]
+    E[Python Simulator] -- generates telemetry data --> D
+    F[Docker Compose] -- orchestrates --> A
+    F -- orchestrates --> B
+    F -- orchestrates --> C
+    F -- orchestrates --> D
+    F -- orchestrates --> E
+
+    B -- "HTTP Traffic & JSON Storage" --> C
+    D -- "HTTP Traffic & JSON Storage" --> B
+
+    click B "http://localhost:8040" "OpenMCT Web Application"
+    click C "http://localhost:8040/couchdb/_utils" "CouchDB"
+    click D "http://localhost:8040/yamcs" "YAMCS"
+    click A "http://localhost:8040/server-status" "Apache Server Status"
