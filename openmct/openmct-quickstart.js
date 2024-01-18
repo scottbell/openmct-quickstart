@@ -1,4 +1,3 @@
-console.debug('🚨 openmct-quickstart.js', window.openmctYamcs);
 const installYamcsPlugin = window.openmctYamcs;
 
 const config = {
