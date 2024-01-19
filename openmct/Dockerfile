@@ -1,8 +1,11 @@
 FROM node:18
 WORKDIR /openmct
 RUN git clone https://github.com/akhenry/openmct-yamcs.git
-RUN cd openmct-yamcs && npm install && npm install nasa/openmct#master --no-save && npm run build:dist 
-RUN mkdir site
+RUN cd openmct-yamcs && \
+    (git checkout fix-openmct-yamcs-build-tests || git checkout main) && \
+    npm install && \
+    npm install nasa/openmct#master --no-save && \
+    npm run build:dist
 COPY index.html site/index.html
 COPY openmct-quickstart.js site/openmct-quickstart.js
 RUN mkdir -p site/node_modules/openmct/dist
