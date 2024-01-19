@@ -28,6 +28,16 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - couchdb-data:/opt/couchdb/data
+  couchdb2:
+    build: couchdb2
+    expose:
+      - '5985:5985'
+    networks:
+      - docker_openmct_link
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - couchdb2-data:/opt/couchdb/data
   yamcs:
     build: yamcs
     expose:
@@ -47,6 +57,7 @@ services:
     - yamcs
 volumes:
   couchdb-data:
+  couchdb2-data:
   openmct-dist:
 networks:
   docker_openmct_link:
