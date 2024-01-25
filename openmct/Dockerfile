@@ -2,7 +2,6 @@ FROM node:18
 WORKDIR /openmct
 RUN git clone https://github.com/akhenry/openmct-yamcs.git
 RUN cd openmct-yamcs && \
-    (git checkout fix-openmct-yamcs-build-tests || git checkout main) && \
     npm install && \
     npm install nasa/openmct#master --no-save && \
     npm run build:dist
