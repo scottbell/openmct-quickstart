@@ -51,10 +51,34 @@ const openmct = window.openmct;
     });
 
     function installDefaultPlugins() {
-        openmct.install(openmct.plugins.CouchDB("http://localhost:8040/couchdb/openmct"));
+        openmct.install(
+            openmct.plugins.example.ExampleTags({ namespaceToSaveAnnotations: 'openmct-sandbox' })
+          );
+    
+          openmct.install(
+            openmct.plugins.CouchDB({
+              databases: [
+                {
+                  url: 'http://localhost:8040/couchdb/openmct-sandbox',
+                  namespace: 'openmct-sandbox',
+                  readOnly: false,
+                  useDesignDocuments: true,
+                  indicator: true
+                },
+                {
+                  url: 'http://localhost:8040/couchdb2/openmct-cm',
+                  namespace: 'openmct-cm',
+                  readOnly: false,
+                  useDesignDocuments: true,
+                  indicator: false
+                }
+              ]
+            })
+          );
+    
+        openmct.install(openmct.plugins.MyItems('CM Items', 'openmct-cm'));
+        openmct.install(openmct.plugins.MyItems('Sandbox Items', 'openmct-sandbox'));
         openmct.install(openmct.plugins.Espresso());
-        openmct.install(openmct.plugins.MyItems());
-        openmct.install(openmct.plugins.Filters(['telemetry.plot.overlay', 'table']));
         openmct.install(openmct.plugins.example.Generator());
         openmct.install(openmct.plugins.example.ExampleImagery());
         openmct.install(openmct.plugins.example.ExampleTags());

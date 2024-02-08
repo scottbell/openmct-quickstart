@@ -2,7 +2,7 @@
 
 echo "🔮 Setting up CouchDB 2..."
 
-export OPENMCT_DATABASE_NAME=openmct
+export OPENMCT_DATABASE_NAME=openmct-cm
 export COUCH_ADMIN_USER=admin
 export COUCH_ADMIN_PASSWORD=password
 export COUCHDB_PORT=5985
