@@ -17,7 +17,9 @@ This repository contains a quick way to get started with Open MCT, integrated wi
 3. Run `docker compose up`
 4. Wait a bit for the containers to start ⏱️
 5. Open a browser to http://localhost:8040
-6. Enter the username/password `testuser`/`NasaIsCool!`
+6. Enter the username/password
+    1. For operators: `operator`/`nasa`
+    2. For admin: `admin`/`nasaadmin`
 
 ## Nuts and Bolts
 
