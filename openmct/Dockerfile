@@ -3,7 +3,7 @@ WORKDIR /openmct
 RUN git clone https://github.com/akhenry/openmct-yamcs.git
 RUN cd openmct-yamcs && \
     npm install && \
-    npm install nasa/openmct#master --no-save && \
+    npm install nasa/openmct#comps --no-save && \
     npm run build:dist
 COPY index.html site/index.html
 COPY openmct-quickstart.js site/openmct-quickstart.js
