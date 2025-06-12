@@ -1,4 +1,5 @@
 const installYamcsPlugin = window.openmctYamcs;
+const openmct = window.openmct;
 
 const config = {
     "yamcsDictionaryEndpoint": "http://localhost:8040/yamcs/",
@@ -35,13 +36,11 @@ const STATUS_STYLES = {
         statusFgColor: "#fff"
     }
 };
-const openmct = window.openmct;
+
 
 (function () {
     const THIRTY_MINUTES = 30 * 60 * 1000;
-
     openmct.setAssetPath('/node_modules/openmct/dist');
-
     installDefaultPlugins();
     openmct.install(installYamcsPlugin(config));
     openmct.install(openmct.plugins.OperatorStatus({statusStyles: STATUS_STYLES}));
@@ -59,6 +58,7 @@ const openmct = window.openmct;
         openmct.install(openmct.plugins.example.ExampleImagery());
         openmct.install(openmct.plugins.example.ExampleTags());
         openmct.install(openmct.plugins.UTCTimeSystem());
+        openmct.install(openmct.plugins.RemoteClock({namespace: 'taxonomy', key:'~myproject~A'}));
         openmct.install(openmct.plugins.TelemetryMean());
 
         openmct.install(openmct.plugins.DisplayLayout({
@@ -70,6 +70,15 @@ const openmct = window.openmct;
                     name: "Realtime",
                     timeSystem: 'utc',
                     clock: 'local',
+                    clockOffsets: {
+                        start: -THIRTY_MINUTES,
+                        end: 0
+                    }
+                },
+                {
+                    name: "Realtime",
+                    timeSystem: 'utc',
+                    clock: 'remote-clock',
                     clockOffsets: {
                         start: -THIRTY_MINUTES,
                         end: 0
