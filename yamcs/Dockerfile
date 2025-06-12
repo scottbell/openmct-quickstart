@@ -1,4 +1,4 @@
-FROM maven:3.8.5-openjdk-17
+FROM maven:3.9.9-eclipse-temurin-17 
 
 WORKDIR /yamcs
 
@@ -11,7 +11,7 @@ RUN sed -i '/<\/dependencies>/i \
     <dependency>\
       <groupId>org.yamcs</groupId>\
       <artifactId>yamcs-prometheus</artifactId>\
-      <version>1.2.0</version>\
+      <version>1.3.0</version>\
     </dependency>' /yamcs/quickstart/pom.xml
 
 # Compile the project
