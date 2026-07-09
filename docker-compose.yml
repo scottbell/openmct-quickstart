@@ -20,7 +20,7 @@ services:
       - "host.docker.internal:host-gateway"
   couchdb:
     build: couchdb
-    expose:
+    ports:
       - '5984:5984'
     networks:
       - docker_openmct_link
@@ -30,7 +30,7 @@ services:
       - couchdb-data:/opt/couchdb/data
   yamcs:
     build: yamcs
-    expose:
+    ports:
       - '8090:8090'
       - '10015:10015/udp'
     networks:
